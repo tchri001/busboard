@@ -4,6 +4,7 @@ import { ArrivalModel } from '../component1/arrival-model';
 import { Input } from '@angular/core';
 import { Component1Component } from '../component1/component1.component';
 import { BusStopService } from '../bus-stop.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-stop-show',
@@ -20,7 +21,7 @@ export class StopShowComponent implements OnInit
     this.selectedStop = stop;
   }
 
-  constructor(private stopService: BusStopService) { }  //should be lightweight - or page will take ages to load
+  constructor(private stopService: BusStopService, public activatedRoute: ActivatedRoute) { }  //should be lightweight - or page will take ages to load
 
   ngOnInit() {    //heavy stuff goes here
     this.listOfStops = this.stopService.getAllStops();

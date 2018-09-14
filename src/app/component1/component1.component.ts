@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BusStopModel } from './bus-stop-model';
 import { ArrivalModel } from './arrival-model';
+import { ActivatedRoute } from '@angular/router';
+import { BusStopService } from '../bus-stop.service';
 
 
 @Component({
@@ -11,11 +13,12 @@ import { ArrivalModel } from './arrival-model';
 export class Component1Component implements OnInit 
 {
 
-  @Input() stop : BusStopModel; 
+  stop : BusStopModel; 
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private stopService: BusStopService) { }
   
   ngOnInit() { 
-    
+    const id = this.route.snapshot.paramMap.get('id');
+    this.stop = this.stopService.getOneStop(id);
   }
 }

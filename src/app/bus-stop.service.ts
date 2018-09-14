@@ -8,16 +8,22 @@ import { lookup } from 'dns';
 })
 export class BusStopService {
 
+getOneStop(id:string): BusStopModel{
+  const stop = this.listOfStops.find(stop => stop.id === id);
+  return stop;
+}
+
   getAllStops(): BusStopModel[] {
     return this.listOfStops;
   }
   
-  getStopData(name: string): ArrivalModel[] {
-    const stop = this.listOfStops.find(stop => stop.name === name);
+  getStopData(id:string): ArrivalModel[] {
+    const stop = this.listOfStops.find(stop => stop.id === id);
     return stop ? stop.arrivals : undefined;
   }
 
   stopEynsham: BusStopModel = new BusStopModel(
+    '1',
     'Eynsham Drive / Blithdale Road',
     [
       new ArrivalModel(1, 177, "Peckham"),
@@ -29,6 +35,7 @@ export class BusStopService {
   );
   
   stopCassilda:BusStopModel = new BusStopModel(
+    '2',
     'Cassilda Road',
     [
       new ArrivalModel(3, 52, "Brixton"),
@@ -40,6 +47,7 @@ export class BusStopService {
   )
 
   stopBostall:BusStopModel = new BusStopModel(
+    '3',
     'Bostall Gardens',
     [
       new ArrivalModel(9, 99, "Oxford"),

@@ -1,4 +1,11 @@
-<h1>Busboard</h1>
+<h1>Bus Business</h1>
 <h2>List of stops</h2>
-<ul *ngFor = "let stop of listOfStops"> <div (click)="onClick(stop)"><li>{{stop.name}}</li></div></ul>
-<app-component1 [stop]="selectedStop"></app-component1>
+<ul *ngFor = "let stop of listOfStops"> 
+<a routerLink="/stop/{{stop.id}}">
+  <div (click)="onClick(stop)">
+    <li>
+      {{stop.name}}
+    </li>
+  </div>
+</a>
+</ul>

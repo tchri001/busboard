@@ -1,4 +1,5 @@
 <h2>Arrivals for {{stop.name}}</h2>
+
 <ol>
   <li *ngFor="let arrival of stop.arrivals">{{arrival.busNumber}} towards {{arrival.destination}} in {{arrival.time}} minutes</li>
 </ol>

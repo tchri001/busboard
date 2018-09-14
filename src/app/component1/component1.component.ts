@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { BusStopModel } from './bus-stop-model';
 import { ArrivalModel } from './arrival-model';
 
+
 @Component({
   selector: 'app-component1',
   templateUrl: './component1.component.html',
@@ -14,5 +15,7 @@ export class Component1Component implements OnInit
 
   constructor() { }
   
-  ngOnInit() { }
+  ngOnInit() { 
+    
+  }
 }
